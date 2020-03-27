@@ -26,7 +26,9 @@ const getData = (url, callback) => {
     request.open('GET', url);
 
     request.addEventListener('readystatechange', () => {
-        if (request.readyState !== 4) return;
+        if (request.readyState !== 4) {
+            return;
+        }
 
         if (request.status === 200) {
             callback(request.response);
@@ -46,7 +48,7 @@ const showCity = (input, list) => {
         const filterCity = city.filter((item) => {
             const fixItem = item.name.toLowerCase();
             return fixItem.startsWith(input.value.toLowerCase());
-        })
+        });
 
         filterCity.forEach((item) => {
             const li = document.createElement('li');
@@ -54,7 +56,7 @@ const showCity = (input, list) => {
             li.textContent = item.name;
             list.append(li);
         });
-    };
+    }
 };
 
 // выбор городов из списка
@@ -116,8 +118,8 @@ const createCard = (data) => {
 
     let deep = '';
 
-if (data) {
-    deep = `
+    if (data) {
+        deep = `
         <h3 class="agent">${data.gate}</h3>
         <div class="ticket__wrapper">
             <div class="left-side">
@@ -141,11 +143,11 @@ if (data) {
             </div>
         </div>
     `;
-} else {
-    deep = '<h3>К сожалению, на текущую дату билетов нет!</h3>';
-}
+    } else {
+        deep = '<h3>К сожалению, на текущую дату билетов нет!</h3>';
+    }
 
-ticket.insertAdjacentHTML ('afterbegin', deep);
+    ticket.insertAdjacentHTML('afterbegin', deep);
 
     return ticket;
 };
@@ -153,7 +155,7 @@ ticket.insertAdjacentHTML ('afterbegin', deep);
 // выбор билетов на определенную дату (конкретный день)
 const renderCheapDay = (cheapTicket) => {
     cheapestTicket.style.display = 'block';
-    cheapestTicket.innerHTML= '<h2>Самый дешевый билет на выбранную дату</h2>';
+    cheapestTicket.innerHTML = '<h2>Самый дешевый билет на выбранную дату</h2>';
 
     const ticket = createCard(cheapTicket[0]);
     cheapestTicket.append(ticket);
@@ -227,14 +229,14 @@ formSearch.addEventListener('submit', (event) => {
             renderCheap(data, formData.when);
         });
     } else {
-        alert('Введите корректное название города')
+        alert('Введите корректное название города');
     }
 });
 
 // ВЫЗОВЫ ФУНКЦИЙ:
 
 getData(proxy + citiesApi, (data) => {
-    city = JSON.parse(data).filter(item => item.name)
+    city = JSON.parse(data).filter(item => item.name);
 
     city.sort((a, b) => {
         if (a.name > b.name) {
