@@ -9,10 +9,10 @@ const formSearch = document.querySelector('.form-search'),
     otherCheapTickets = document.getElementById('other-cheap-tickets');
 
 // данные API
-const citiesApi = 'http://api.travelpayouts.com/data/ru/cities.json',
+const citiesApi = 'https://api.travelpayouts.com/data/ru/cities.json',
     proxy = 'https://cors-anywhere.herokuapp.com/',
     API_KEY = 'bde47736cda190be5c67955fd8f2f1e5',
-    calendar = 'http://min-prices.aviasales.ru/calendar_preload',
+    calendar = 'https://min-prices.aviasales.ru/calendar_preload',
     MAX_COUNT = 10;
 
 let city = [];
