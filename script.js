@@ -191,6 +191,7 @@ const renderCheap = (data, date) => {
 
 inputCitiesFrom.addEventListener('input', () => {
     showCity(inputCitiesFrom, dropdownCitiesFrom);
+
 });
 
 inputCitiesTo.addEventListener('input', () => {
