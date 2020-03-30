@@ -236,7 +236,7 @@ formSearch.addEventListener('submit', (event) => {
 // ВЫЗОВЫ ФУНКЦИЙ:
 
 getData(proxy + citiesApi, (data) => {
-  city = JSON.parse(data).filter(item => item.name);
+  city = JSON.parse(data).filter((item) => item.name);
 
   city.sort((a, b) => {
     if (a.name > b.name) {
@@ -247,5 +247,4 @@ getData(proxy + citiesApi, (data) => {
     }
     return 0;
   });
-  console.log(city);
 });
