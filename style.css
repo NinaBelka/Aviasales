@@ -104,7 +104,6 @@ input {
   color: #000;
   max-height: 300px;
   overflow-x: hidden;
-  /* z-index: 99; */
 }
 
 .dropdown__city {
@@ -276,19 +275,17 @@ input {
     width: 100%;
   }
 
-  .dropdown {
+  /* .dropdown {
     z-index: 10000;
   }
 
   .input {
     z-index: 0;
-  }
+  } */
     .ticket {
       max-width: 550px;
     }
-
 }
-
 
 @media(max-width: 550px) {
   .right-side {
